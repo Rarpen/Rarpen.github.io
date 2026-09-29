@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ricardo Amaro Pedreira — Engenheiro de Software</title>
+  <meta name="description" content="Portfólio de Ricardo Amaro Pedreira, Engenheiro de Software. Comunicativo, resolvedor de problemas.">
+  <link rel="icon" href="design-system/assets/rp-monogram.svg">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="design-system/tokens.css">
+  <link rel="stylesheet" href="design-system/components.css">
+
+  <style>
+    /* Layout da página (usa apenas tokens do design system) */
+    html { scroll-behavior: smooth; }
+    .rp-wrap { max-width: var(--content-max); margin: 0 auto; }
+    .rp-nav-fixed { position: sticky; top: 0; z-index: 50; }
+    .rp-section { padding: var(--space-24) var(--space-8); scroll-margin-top: 80px; }
+    .rp-section > .rp-wrap { max-width: var(--content-max); }
+    .rp-measure { max-width: 64ch; }
+    .rp-body-lg { font: 400 18px/30px var(--font-sans); color: var(--ink-muted); }
+    .rp-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-12); }
+    .rp-skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-12); }
+    .rp-skill-group h3 { margin: 0 0 var(--space-3); font: 600 16px/22px var(--font-sans); color: var(--ink); }
+    .rp-contact { display: flex; flex-direction: column; gap: var(--space-6); align-items: flex-start; }
+    .rp-contact-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .rp-footer { padding: var(--space-8); border-top: 1px solid var(--border); color: var(--ink-muted);
+      font: 400 14px/20px var(--font-sans); text-align: center; }
+    .rp-menu-btn { display: none; }
+    @media (min-width: 640px) { .rp-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .rp-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 640px) { .rp-skills { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .rp-section { padding: var(--space-16) var(--space-4); } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navegação ===== -->
+  <header class="rp-nav-fixed">
+    <nav class="rp-nav rp-wrap" aria-label="Principal">
+      <a class="rp-nav-logo" href="#topo"><b>RP</b> Ricardo Pedreira</a>
+      <ul class="rp-nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="rp-theme-toggle" id="themeToggle" aria-label="Alternar tema" title="Alternar tema claro/escuro">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="topo">
+
+    <!-- ===== Hero ===== -->
+    <section class="rp-wrap">
+      <div class="rp-hero">
+        <div>
+          <p class="rp-hero-kicker">Olá, eu sou</p>
+          <h1 class="rp-hero-name">Ricardo Amaro Pedreira</h1>
+          <p class="rp-hero-role">Engenheiro de Software</p>
+          <ul class="rp-keywords">
+            <li>Comunicativo</li>
+            <li>Resolvedor de problemas</li>
+            <li>Engenheiro de Software</li>
+          </ul>
+          <div class="rp-hero-actions">
+            <a class="rp-btn rp-btn-primary" href="#projetos">Ver projetos <span class="rp-arrow" aria-hidden="true">→</span></a>
+            <a class="rp-btn rp-btn-cta" href="#contato">Vamos conversar</a>
+          </div>
+        </div>
+        <div class="rp-avatar">
+          <img src="design-system/assets/robot-avatar.svg" alt="Avatar robô mecha de Ricardo">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Sobre ===== -->
+    <section class="rp-section" id="sobre">
+      <div class="rp-wrap rp-reveal">
+        <span class="rp-eyebrow">Sobre</span>
+        <h2 class="rp-section-title">Quem está por trás do código</h2>
+        <p class="rp-body-lg rp-measure" style="margin-top: var(--space-6);">
+          Sou desenvolvedor <strong>Full Stack</strong>, com foco em aplicações <strong>mobile</strong>
+          (React Native + Expo) e <strong>web</strong>. Gosto de construir produtos de ponta a ponta —
+          do backend à interface — e transformo ideias em apps funcionais rapidinho.
+        </p>
+        <p class="rp-body-lg rp-measure" style="margin-top: var(--space-4);">
+          Estou sempre aprimorando <strong>TypeScript</strong>, <strong>Python</strong> e boas práticas
+          de arquitetura, e explorando <strong>IA aplicada</strong> (OpenAI, Gemini, LangChain) em
+          projetos reais. Comunicação clara e código bem escrito andam juntos no meu trabalho.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Projetos ===== -->
+    <!-- EDITE: troque os cards abaixo pelos seus projetos do LinkedIn (título, descrição, tecnologias e link). -->
+    <section class="rp-section" id="projetos">
+      <div class="rp-wrap">
+        <div class="rp-reveal">
+          <span class="rp-eyebrow">Projetos</span>
+          <h2 class="rp-section-title">O que já construí</h2>
+        </div>
+        <div class="rp-grid">
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">Qual Vale Mais</h3>
+            <p class="rp-card-desc">Comparador interativo feito em React que ajuda a decidir, de forma visual, qual opção realmente vale mais a pena. Publicado e no ar.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">React</span>
+              <span class="rp-tag">TypeScript</span>
+              <span class="rp-tag">Vite</span>
+            </div>
+            <div class="rp-tags" style="margin-top:auto;">
+              <a class="rp-link" href="https://qual-vale-mais-react.vercel.app" target="_blank" rel="noopener">Ver online →</a>
+              <a class="rp-link" href="https://github.com/Rarpen/qual-vale-mais-react" target="_blank" rel="noopener">Código →</a>
+            </div>
+          </article>
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">FinanceAI — Recomendações</h3>
+            <p class="rp-card-desc">Azure Function que gera recomendações financeiras personalizadas com a API da OpenAI e valida assinaturas premium no Stripe. Integrei IA e pagamentos num backend serverless.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">Node.js</span>
+              <span class="rp-tag">Azure Functions</span>
+              <span class="rp-tag">OpenAI</span>
+              <span class="rp-tag">Stripe</span>
+            </div>
+            <a class="rp-link" href="https://github.com/Rarpen/Compartilhamento" target="_blank" rel="noopener" style="margin-top:auto;">Ver código →</a>
+          </article>
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">Filmes React</h3>
+            <p class="rp-card-desc">Aplicação de filmes em React que consome uma API externa e monta a interface de listagem e detalhes de forma dinâmica.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">React</span>
+              <span class="rp-tag">JavaScript</span>
+              <span class="rp-tag">REST API</span>
+            </div>
+            <a class="rp-link" href="https://github.com/Rarpen/FilmesReactJSF" target="_blank" rel="noopener" style="margin-top:auto;">Ver código →</a>
+          </article>
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">Micro-frontend (MFE)</h3>
+            <p class="rp-card-desc">Implementação de um micro-frontend em TypeScript — tarefa formativa focada em arquitetura modular e integração entre aplicações independentes.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">TypeScript</span>
+              <span class="rp-tag">Micro-frontends</span>
+            </div>
+            <a class="rp-link" href="https://github.com/Rarpen/AREFA-FORMATIVA---MFE-2---IMPLEMENTA--O" target="_blank" rel="noopener" style="margin-top:auto;">Ver código →</a>
+          </article>
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">Static Web App</h3>
+            <p class="rp-card-desc">App React publicado no Azure Static Web Apps — do build ao deploy, explorando a esteira de publicação de aplicações estáticas na nuvem.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">React</span>
+              <span class="rp-tag">TypeScript</span>
+              <span class="rp-tag">Azure</span>
+            </div>
+            <a class="rp-link" href="https://github.com/Rarpen/my-first-static-web-app" target="_blank" rel="noopener" style="margin-top:auto;">Ver código →</a>
+          </article>
+
+          <article class="rp-card rp-reveal">
+            <h3 class="rp-card-title">Fundamentos em C</h3>
+            <p class="rp-card-desc">Conjunto de exercícios e projetos em C trabalhando lógica de programação, estruturas e a base que sustenta tudo o resto.</p>
+            <div class="rp-tags">
+              <span class="rp-tag">C</span>
+              <span class="rp-tag">Lógica</span>
+            </div>
+            <a class="rp-link" href="https://github.com/Rarpen/Teste_programing_C_Finish" target="_blank" rel="noopener" style="margin-top:auto;">Ver código →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="rp-section" id="skills">
+      <div class="rp-wrap">
+        <div class="rp-reveal">
+          <span class="rp-eyebrow">Skills</span>
+          <h2 class="rp-section-title">Ferramentas do dia a dia</h2>
+        </div>
+        <div class="rp-skills">
+          <div class="rp-skill-group rp-reveal">
+            <h3>Mobile</h3>
+            <div class="rp-tags">
+              <span class="rp-tag">React Native</span>
+              <span class="rp-tag">Expo</span>
+              <span class="rp-tag">NativeWind</span>
+            </div>
+          </div>
+          <div class="rp-skill-group rp-reveal">
+            <h3>Frontend</h3>
+            <div class="rp-tags">
+              <span class="rp-tag">React</span>
+              <span class="rp-tag">TypeScript</span>
+              <span class="rp-tag">JavaScript</span>
+            </div>
+          </div>
+          <div class="rp-skill-group rp-reveal">
+            <h3>Backend &amp; Dados</h3>
+            <div class="rp-tags">
+              <span class="rp-tag">Node.js</span>
+              <span class="rp-tag">Python</span>
+              <span class="rp-tag">Firebase</span>
+              <span class="rp-tag">SQL</span>
+              <span class="rp-tag">Pandas</span>
+            </div>
+          </div>
+          <div class="rp-skill-group rp-reveal">
+            <h3>IA &amp; Machine Learning</h3>
+            <div class="rp-tags">
+              <span class="rp-tag">OpenAI API</span>
+              <span class="rp-tag">Google Gemini</span>
+              <span class="rp-tag">LangChain</span>
+              <span class="rp-tag">Hugging Face</span>
+              <span class="rp-tag">Prompt Engineering</span>
+            </div>
+          </div>
+          <div class="rp-skill-group rp-reveal">
+            <h3>Ferramentas &amp; Estado</h3>
+            <div class="rp-tags">
+              <span class="rp-tag">Git</span>
+              <span class="rp-tag">Zustand</span>
+              <span class="rp-tag">Streamlit</span>
+              <span class="rp-tag">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contato ===== -->
+    <section class="rp-section" id="contato">
+      <div class="rp-wrap rp-reveal">
+        <span class="rp-eyebrow">Contato</span>
+        <h2 class="rp-section-title">Vamos construir algo juntos</h2>
+        <div class="rp-panel" style="margin-top: var(--space-8);">
+          <div class="rp-contact">
+            <p class="rp-body-lg rp-measure" style="margin:0;">
+              Tem um projeto, uma vaga ou só quer trocar uma ideia sobre software? Me chama.
+            </p>
+            <div class="rp-contact-actions">
+              <a class="rp-btn rp-btn-cta" href="mailto:ramaropedreira@gmail.com">Enviar e-mail <span class="rp-arrow" aria-hidden="true">→</span></a>
+              <a class="rp-btn rp-btn-ghost" href="https://www.linkedin.com/in/ricardo-amaro-dev/" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="rp-btn rp-btn-ghost" href="https://github.com/Rarpen" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rp-footer">
+    © <span id="year"></span> Ricardo Amaro Pedreira · Feito com HTML, CSS e um pouco de JS.
+  </footer>
+
+  <script>
+    // Ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Tema (abre no escuro; escolha guardada em localStorage) =====
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem('rp-theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) {}
+      var btn = document.getElementById('themeToggle');
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('rp-theme', next); } catch (e) {}
+      });
+    })();
+
+    // ===== Revelar no scroll (escalonado dentro de grades) =====
+    (function () {
+      var els = document.querySelectorAll('.rp-reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var group = entry.target.parentElement;
+            var siblings = Array.prototype.filter.call(group.children, function (c) { return c.classList.contains('rp-reveal'); });
+            var i = siblings.indexOf(entry.target);
+            entry.target.style.transitionDelay = (i > 0 ? i * 60 : 0) + 'ms';
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // ===== Item ativo na navegação =====
+    (function () {
+      var sections = ['sobre', 'projetos', 'skills', 'contato'].map(function (id) { return document.getElementById(id); });
+      var links = {};
+      document.querySelectorAll('.rp-nav-links a').forEach(function (a) {
+        links[a.getAttribute('href').slice(1)] = a;
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            Object.values(links).forEach(function (a) { a.removeAttribute('aria-current'); });
+            var link = links[entry.target.id];
+            if (link) link.setAttribute('aria-current', 'true');
+          }
+        });
+      }, { rootMargin: '-50% 0px -50% 0px' });
+      sections.forEach(function (s) { if (s) io.observe(s); });
+    })();
+  </script>
+</body>
+</html>

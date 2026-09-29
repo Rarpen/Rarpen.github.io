@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
+
+/* Ricardo Amaro Pedreira — component styles. Prefix: rp- */
+body { background: var(--bg); color: var(--ink); font-family: var(--font-sans); margin: 0; }
+*:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Button */
+.rp-btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md); border: 1.5px solid transparent; font: 600 15px/20px var(--font-sans);
+  text-decoration: none; cursor: pointer; transition: background-color .2s, border-color .2s, color .2s, transform .2s; }
+.rp-btn .rp-arrow { transition: transform .2s; }
+.rp-btn:hover .rp-arrow { transform: translateX(3px); }
+.rp-btn-primary { background: var(--teal); color: var(--on-accent); }
+.rp-btn-primary:hover { background: var(--teal-ink); color: var(--bg); }
+.rp-btn-cta { background: var(--orange); color: var(--on-accent); }
+.rp-btn-cta:hover { background: var(--orange-hover); }
+.rp-btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+.rp-btn-ghost:hover { border-color: var(--teal); color: var(--teal-ink); }
+.rp-btn-sm { padding: var(--space-2) var(--space-4); font-size: 14px; }
+
+/* Tag */
+.rp-tag { display: inline-flex; align-items: center; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm);
+  background: var(--teal-soft); color: var(--teal-soft-ink); font: 500 13px/20px var(--font-mono); }
+.rp-tag-outline { background: transparent; color: var(--ink-muted); box-shadow: inset 0 0 0 1px var(--border); }
+.rp-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+
+/* Section heading */
+.rp-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--teal-ink);
+  font: 600 13px/16px var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.rp-eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--orange); border-radius: 2px; }
+.rp-section-title { margin: var(--space-2) 0 0; font: 600 36px/44px var(--font-display); letter-spacing: -.01em; color: var(--ink); }
+@media (max-width: 640px) { .rp-section-title { font-size: 28px; line-height: 36px; } }
+
+/* Project card */
+.rp-card { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--surface);
+  border: 2px solid var(--border-glow); border-radius: var(--radius-lg); box-shadow: var(--shadow-glow-soft);
+  transition: transform .2s, box-shadow .2s, border-color .2s; }
+.rp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); border-color: var(--teal); }
+.rp-card-title { margin: 0; font: 600 20px/28px var(--font-sans); color: var(--ink); }
+.rp-card-desc { margin: 0; font: 400 16px/26px var(--font-sans); color: var(--ink-muted); flex: 1; }
+.rp-link { color: var(--teal-ink); font: 600 14px/20px var(--font-sans); text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; transition: background-size .25s, color .2s; }
+.rp-link:hover { background-size: 100% 1.5px; color: var(--orange); }
+
+/* Nav */
+.rp-nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: var(--space-3) var(--space-8);
+  background: var(--bg); border-bottom: 1px solid var(--border); }
+.rp-nav-logo { display: inline-flex; align-items: center; gap: var(--space-2); font: 700 18px/1 var(--font-display); color: var(--ink); text-decoration: none; }
+.rp-nav-logo b { display: grid; place-items: center; width: 32px; height: 32px; border-radius: var(--radius-sm); background: var(--ink); color: var(--bg); font-size: 14px; }
+.rp-nav-links { display: flex; gap: var(--space-6); list-style: none; margin: 0; padding: 0; }
+.rp-nav-links a { color: var(--ink-muted); text-decoration: none; font: 500 14px/20px var(--font-sans); }
+.rp-nav-links a:hover, .rp-nav-links a[aria-current] { color: var(--ink); }
+.rp-nav-links a[aria-current] { box-shadow: 0 2px 0 var(--teal); }
+.rp-theme-toggle { width: 40px; height: 40px; border-radius: var(--radius-pill); border: 1px solid var(--border); background: var(--surface);
+  color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.rp-theme-toggle:hover { border-color: var(--teal); box-shadow: var(--shadow-glow-soft); }
+@media (max-width: 640px) { .rp-nav { padding: var(--space-3) var(--space-4); } .rp-nav-links { display: none; } }
+
+/* Hero */
+.rp-hero { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: var(--space-12); padding: var(--space-16) var(--space-8); }
+.rp-hero-kicker { color: var(--ink-muted); font: 500 16px/24px var(--font-sans); margin: 0; }
+.rp-hero-name { margin: var(--space-2) 0 0; font: 700 72px/76px var(--font-display); letter-spacing: -.03em; color: var(--ink); }
+.rp-hero-role { margin: var(--space-3) 0 0; font: 600 24px/32px var(--font-display); color: var(--teal-ink); }
+.rp-keywords { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin: var(--space-6) 0 0; padding: 0; list-style: none;
+  font: 500 15px/22px var(--font-sans); color: var(--ink); }
+.rp-keywords li + li::before { content: "·"; color: var(--orange); margin-right: var(--space-3); font-weight: 700; }
+.rp-hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+.rp-avatar { justify-self: center; width: min(100%, 360px); aspect-ratio: 1; border-radius: var(--radius-lg); background: var(--surface);
+  border: 2px solid var(--border-glow); box-shadow: var(--shadow-glow); display: grid; place-items: center; overflow: hidden; }
+.rp-avatar img { width: 88%; height: auto; animation: rp-float 6s ease-in-out infinite; }
+@keyframes rp-float { 50% { transform: translateY(-6px); } }
+@media (max-width: 800px) { .rp-hero { grid-template-columns: 1fr; padding: var(--space-12) var(--space-4); }
+  .rp-hero-name { font-size: 48px; line-height: 54px; } .rp-avatar { width: min(100%, 280px); } }
+
+/* Panel — the glowing dark frame (contato, destaques) */
+.rp-panel { padding: var(--space-8); background: var(--surface); border: 2px solid var(--border-glow); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glow-soft); }
+
+/* Reveal on scroll */
+.rp-reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .5s cubic-bezier(.2,.7,.2,1); }
+.rp-reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .rp-reveal { opacity: 1; transform: none; }
+}

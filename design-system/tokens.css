@@ -1,0 +1,62 @@
+/* Ricardo Amaro Pedreira — design tokens. Tema escuro e o padrao. */
+:root, [data-theme="dark"] {
+  --bg: #000000;
+  --surface: #121414;
+  --surface-2: #1a1e1f;
+  --border: #262c2d;
+  --border-glow: #0e5a61;
+  --ink: #ffffff;
+  --ink-muted: #a9b1b3;
+  --teal: #00a1b0;
+  --teal-ink: #00a1b0;
+  --teal-soft: #00262a;
+  --teal-soft-ink: #5fd3de;
+  --orange: #df6100;
+  --orange-hover: #ff7a1a;
+  --on-accent: #000000;
+  --focus: var(--orange);
+  --shadow-glow-soft: 0 0 24px rgba(0,161,176,0.18);
+  --shadow-card: 0 0 0 1px rgba(0,161,176,0.35), 0 0 40px rgba(0,161,176,0.28);
+  --shadow-glow: 0 0 0 6px rgba(0,161,176,0.18), 0 12px 48px rgba(0,161,176,0.25);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f5f7f7;
+  --surface-2: #eef3f4;
+  --border: #e2e8e9;
+  --border-glow: #9fdde3;
+  --ink: #000000;
+  --ink-muted: #4a5254;
+  --teal: #00a1b0;
+  --teal-ink: #007c88;
+  --teal-soft: #e0f4f6;
+  --teal-soft-ink: #005a63;
+  --orange: #df6100;
+  --orange-hover: #ff7a1a;
+  --on-accent: #000000;
+  --focus: var(--orange);
+  --shadow-glow-soft: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.05), 0 8px 24px rgba(0,161,176,0.12);
+  --shadow-glow: 0 0 0 6px rgba(0,161,176,0.18), 0 12px 48px rgba(0,161,176,0.25);
+  color-scheme: light;
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --content-max: 1120px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
