@@ -25,7 +25,18 @@
     .rp-section > .rp-wrap { max-width: var(--content-max); }
     .rp-measure { max-width: 64ch; }
     .rp-body-lg { font: 400 18px/30px var(--font-sans); color: var(--ink-muted); }
-    .rp-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-12); }
+    .rp-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-6); }
+    /* Projeto em destaque */
+    .rp-feature { margin-top: var(--space-12); border-color: var(--teal); box-shadow: var(--shadow-card);
+      display: grid; grid-template-columns: 1fr; gap: var(--space-6); padding: var(--space-8); }
+    .rp-badges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .rp-badge { display: inline-flex; align-items: center; gap: 6px; padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-pill); font: 600 12px/18px var(--font-mono); letter-spacing: .02em; }
+    .rp-badge-star { background: var(--teal); color: var(--on-accent); }
+    .rp-badge-ai { background: var(--surface-2); color: var(--teal-soft-ink); box-shadow: inset 0 0 0 1px var(--teal); }
+    .rp-feature-title { margin: var(--space-2) 0 0; font: 700 32px/38px var(--font-display); letter-spacing: -.02em; color: var(--ink); }
+    .rp-feature-lead { margin: var(--space-3) 0 0; font: 400 17px/28px var(--font-sans); color: var(--ink-muted); max-width: 60ch; }
+    @media (max-width: 640px) { .rp-feature-title { font-size: 26px; line-height: 32px; } }
     .rp-skills { display: grid; grid-template-columns: 1fr; gap: var(--space-6); margin-top: var(--space-12); }
     .rp-skill-group h3 { margin: 0 0 var(--space-3); font: 600 16px/22px var(--font-sans); color: var(--ink); }
     .rp-contact { display: flex; flex-direction: column; gap: var(--space-6); align-items: flex-start; }
@@ -108,6 +119,34 @@
           <span class="rp-eyebrow">Projetos</span>
           <h2 class="rp-section-title">O que já construí</h2>
         </div>
+
+        <!-- ===== Projeto em destaque: Comparaí ===== -->
+        <article class="rp-card rp-feature rp-reveal">
+          <div class="rp-badges">
+            <span class="rp-badge rp-badge-star">★ Projeto em destaque</span>
+            <span class="rp-badge rp-badge-ai">✦ Programado com apoio de IA</span>
+          </div>
+          <div>
+            <h3 class="rp-feature-title">Comparaí</h3>
+            <p class="rp-feature-lead">
+              App que responde “qual vale mais a pena?”: compara duas embalagens pelo <strong>preço real</strong>
+              (preço por kg/unidade), monta a sua lista de compras e mostra quanto você economizou. Roda na
+              <strong>web e no celular</strong>. Desenvolvido de ponta a ponta com apoio de <strong>IA na programação</strong>,
+              acelerando da ideia ao produto no ar.
+            </p>
+          </div>
+          <div class="rp-tags">
+            <span class="rp-tag">React Native</span>
+            <span class="rp-tag">Expo</span>
+            <span class="rp-tag">TypeScript</span>
+            <span class="rp-tag">IA / AI-assisted</span>
+          </div>
+          <div class="rp-hero-actions" style="margin-top:0;">
+            <a class="rp-btn rp-btn-cta" href="https://comparai.expo.app" target="_blank" rel="noopener">Abrir o app <span class="rp-arrow" aria-hidden="true">→</span></a>
+            <a class="rp-btn rp-btn-ghost" href="https://comparai.expo.app" target="_blank" rel="noopener">comparai.expo.app</a>
+          </div>
+        </article>
+
         <div class="rp-grid">
 
           <article class="rp-card rp-reveal">
