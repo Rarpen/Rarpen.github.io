@@ -20,6 +20,9 @@
     /* Layout da página (usa apenas tokens do design system) */
     html { scroll-behavior: smooth; }
     .rp-wrap { max-width: var(--content-max); margin: 0 auto; }
+    /* Avatar segue o mouse (tilt 3D) */
+    .rp-hero { perspective: 1000px; }
+    .rp-avatar { transition: transform .18s ease-out; will-change: transform; transform-style: preserve-3d; }
     .rp-nav-fixed { position: sticky; top: 0; z-index: 50; }
     .rp-section { padding: var(--space-24) var(--space-8); scroll-margin-top: 80px; }
     .rp-section > .rp-wrap { max-width: var(--content-max); }
@@ -362,6 +365,37 @@
         });
       }, { rootMargin: '-50% 0px -50% 0px' });
       sections.forEach(function (s) { if (s) io.observe(s); });
+    })();
+
+    // ===== Avatar segue o mouse (inclina em 3D na direção do cursor) =====
+    (function () {
+      var avatar = document.querySelector('.rp-avatar');
+      if (!avatar) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return; // só com mouse
+
+      var targetX = 0, targetY = 0, curX = 0, curY = 0, active = false;
+
+      window.addEventListener('mousemove', function (e) {
+        var r = avatar.getBoundingClientRect();
+        var ax = r.left + r.width / 2, ay = r.top + r.height / 2;
+        // distância normalizada do centro do avatar até o cursor
+        targetX = Math.max(-1, Math.min(1, (e.clientX - ax) / (window.innerWidth * 0.5)));
+        targetY = Math.max(-1, Math.min(1, (e.clientY - ay) / (window.innerHeight * 0.5)));
+        active = true;
+      });
+      // volta ao centro quando o mouse sai da janela
+      document.addEventListener('mouseleave', function () { targetX = 0; targetY = 0; });
+
+      function loop() {
+        curX += (targetX - curX) * 0.08;
+        curY += (targetY - curY) * 0.08;
+        var ry = curX * 16;   // gira para os lados
+        var rx = -curY * 12;  // inclina para cima/baixo
+        avatar.style.transform = 'rotateY(' + ry.toFixed(2) + 'deg) rotateX(' + rx.toFixed(2) + 'deg)';
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
     })();
   </script>
 </body>
