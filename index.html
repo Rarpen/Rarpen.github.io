@@ -20,8 +20,11 @@
     /* Layout da página (usa apenas tokens do design system) */
     html { scroll-behavior: smooth; }
     .rp-wrap { max-width: var(--content-max); margin: 0 auto; }
-    /* Robô segue o mouse (tilt 3D) — só o robô se move, a moldura fica parada */
-    .rp-avatar { perspective: 900px; }
+    /* Robô 3D (WebGL) dentro da moldura; SVG como fallback */
+    .rp-avatar { perspective: 900px; position: relative; }
+    #robotCanvas { display: none; width: 100%; height: 100%; }
+    .rp-avatar.is-3d #robotCanvas { display: block; }
+    .rp-avatar.is-3d .rp-avatar-fallback { display: none; }
     .rp-avatar img { will-change: transform; transform-style: preserve-3d; backface-visibility: hidden; }
     .rp-nav-fixed { position: sticky; top: 0; z-index: 50; }
     .rp-section { padding: var(--space-24) var(--space-8); scroll-margin-top: 80px; }
@@ -90,8 +93,9 @@
             <a class="rp-btn rp-btn-cta" href="#contato">Vamos conversar</a>
           </div>
         </div>
-        <div class="rp-avatar">
-          <img src="design-system/assets/robot-avatar.svg" alt="Avatar robô mecha de Ricardo">
+        <div class="rp-avatar" id="rpAvatar">
+          <canvas id="robotCanvas" aria-hidden="true"></canvas>
+          <img class="rp-avatar-fallback" src="design-system/assets/robot-avatar.svg" alt="Avatar robô mecha de Ricardo">
         </div>
       </div>
     </section>
@@ -367,39 +371,10 @@
       sections.forEach(function (s) { if (s) io.observe(s); });
     })();
 
-    // ===== Só o robô segue o mouse (inclina em 3D); a moldura fica parada =====
-    (function () {
-      var frame = document.querySelector('.rp-avatar');
-      var robot = frame && frame.querySelector('img');
-      if (!robot) return;
-      // Respeita reduzir-animações e só ativa com mouse (no touch mantém a flutuação do CSS)
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-
-      // Assume o controle da animação: desliga a flutuação do CSS e recria no JS
-      robot.style.animation = 'none';
-
-      var targetX = 0, targetY = 0, curX = 0, curY = 0;
-
-      window.addEventListener('mousemove', function (e) {
-        var r = frame.getBoundingClientRect();
-        var ax = r.left + r.width / 2, ay = r.top + r.height / 2;
-        targetX = Math.max(-1, Math.min(1, (e.clientX - ax) / (window.innerWidth * 0.5)));
-        targetY = Math.max(-1, Math.min(1, (e.clientY - ay) / (window.innerHeight * 0.5)));
-      });
-      document.addEventListener('mouseleave', function () { targetX = 0; targetY = 0; });
-
-      function loop(t) {
-        curX += (targetX - curX) * 0.08;
-        curY += (targetY - curY) * 0.08;
-        var ry = curX * 18;                 // gira para os lados
-        var rx = -curY * 14;                // inclina para cima/baixo
-        var floatY = Math.sin(t / 900) * -6; // mantém a flutuação (~±6px)
-        robot.style.transform = 'translateY(' + floatY.toFixed(2) + 'px) rotateY(' + ry.toFixed(2) + 'deg) rotateX(' + rx.toFixed(2) + 'deg)';
-        requestAnimationFrame(loop);
-      }
-      requestAnimationFrame(loop);
-    })();
   </script>
+
+  <!-- Robô 3D (Three.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="robot3d.js"></script>
 </body>
 </html>
