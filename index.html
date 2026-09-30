@@ -20,12 +20,10 @@
     /* Layout da página (usa apenas tokens do design system) */
     html { scroll-behavior: smooth; }
     .rp-wrap { max-width: var(--content-max); margin: 0 auto; }
-    /* Robô 3D (WebGL) dentro da moldura; SVG como fallback */
-    .rp-avatar { perspective: 900px; position: relative; }
-    #robotCanvas { display: none; width: 100%; height: 100%; }
-    .rp-avatar.is-3d #robotCanvas { display: block; }
-    .rp-avatar.is-3d .rp-avatar-fallback { display: none; }
-    .rp-avatar img { will-change: transform; transform-style: preserve-3d; backface-visibility: hidden; }
+    /* Hero só com texto (sem avatar) */
+    .rp-hero { grid-template-columns: 1fr; }
+    .rp-hero > div { max-width: 640px; }
+    .rp-hero-name { overflow-wrap: break-word; }
     .rp-nav-fixed { position: sticky; top: 0; z-index: 50; }
     .rp-section { padding: var(--space-24) var(--space-8); scroll-margin-top: 80px; }
     .rp-section > .rp-wrap { max-width: var(--content-max); }
@@ -92,10 +90,6 @@
             <a class="rp-btn rp-btn-primary" href="#projetos">Ver projetos <span class="rp-arrow" aria-hidden="true">→</span></a>
             <a class="rp-btn rp-btn-cta" href="#contato">Vamos conversar</a>
           </div>
-        </div>
-        <div class="rp-avatar" id="rpAvatar">
-          <canvas id="robotCanvas" aria-hidden="true"></canvas>
-          <img class="rp-avatar-fallback" src="design-system/assets/robot-avatar.svg" alt="Avatar robô mecha de Ricardo">
         </div>
       </div>
     </section>
@@ -372,9 +366,5 @@
     })();
 
   </script>
-
-  <!-- Robô 3D (Three.js) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="robot3d.js"></script>
 </body>
 </html>
